@@ -1,2 +1,10 @@
-ALTER TABLE users
-ADD Balance DECIMAL(10,2);
+CREATE TABLE users(
+Id int PRIMARY KEY AUTO_INCREMENT,
+Name VARCHAR(50),
+email VARCHAR(70),
+Phone BIGINT,
+password VARCHAR(100),
+Balance DECIMAL(10,2)
+)
+
+INSERT INTO users Balance="Number" WHERE Id=""
