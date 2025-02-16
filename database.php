@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "connect.php";
 
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
@@ -41,6 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
         $user = $result->fetch_assoc();
         #verify password
         if (password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['Id'];
+            $_SESSION['user_name'] = $user['Name'];
+            $_SESSION['user_balance'] = $user['Balance'];
             header("location: homepage.php");
             exit();
         } else {
